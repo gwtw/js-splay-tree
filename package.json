@@ -1,0 +1,38 @@
+{
+  "name": "@tyriar/splay-tree",
+  "version": "0.1.0",
+  "description": "An implementation of the splay tree data structure",
+  "scripts": {
+    "doc": "documentation-readme -s \"API\"",
+    "test": "xo && nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tyriar/js-splay-tree.git"
+  },
+  "keywords": [
+    "computer science",
+    "data structure",
+    "priority queue",
+    "splay tree",
+    "tree"
+  ],
+  "main": "index.js",
+  "author": "Daniel Imms (http://www.growingwiththeweb.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tyriar/js-splay-tree/issues"
+  },
+  "homepage": "https://github.com/Tyriar/js-splay-tree",
+  "devDependencies": {
+    "ava": "*",
+    "coveralls": "^2.11.4",
+    "documentation-readme": "^2.1.0",
+    "nyc": "^3.2.2",
+    "xo": "*"
+  },
+  "xo": {
+    "space": 2
+  }
+}
