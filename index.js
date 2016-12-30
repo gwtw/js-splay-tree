@@ -4,12 +4,12 @@ var BaseBinaryTree = require('./base-binary-tree');
 var BinaryTreeNode = require('./binary-tree-node');
 
 /**
-  * Creates a splay tree.
-  *
-  * @constructor
-  * @param {function} customCompare An optional custom node comparison
-  * function.
-  */
+ * Creates a splay tree.
+ *
+ * @constructor
+ * @param {function} customCompare An optional custom node comparison
+ * function.
+ */
 var SplayTree = function (customCompare) {
   BaseBinaryTree.call(this);
 
@@ -25,11 +25,11 @@ SplayTree.prototype = Object.create(BaseBinaryTree.prototype);
 SplayTree.prototype.constructor = SplayTree;
 
 /**
-  * Adds a key to the tree.
-  *
-  * @param {Object} key The key to add.
-  * @return {boolean} Whether the node was added.
-  */
+ * Adds a key to the tree.
+ *
+ * @param {Object} key The key to add.
+ * @return {boolean} Whether the node was added.
+ */
 SplayTree.prototype.add = function (key) {
   if (!this.root) {
     this.root = new BinaryTreeNode(key);
@@ -43,11 +43,11 @@ SplayTree.prototype.add = function (key) {
 };
 
 /**
-  * Determines whether the tree contains a key.
-  *
-  * @param {Object} key The key to check.
-  * @return {boolean} Whether the node contains the key.
-  */
+ * Determines whether the tree contains a key.
+ *
+ * @param {Object} key The key to check.
+ * @return {boolean} Whether the node contains the key.
+ */
 SplayTree.prototype.contains = function (key) {
   if (!this.root) {
     return false;
@@ -61,8 +61,8 @@ SplayTree.prototype.contains = function (key) {
 };
 
 /**
-  * @return {Object} The maximum key of the tree.
-  */
+ * @return {Object} The maximum key of the tree.
+ */
 SplayTree.prototype.findMaximum = function () {
   if (!this.root) {
     return undefined;
@@ -79,8 +79,8 @@ SplayTree.prototype.findMaximum = function () {
 };
 
 /**
-  * @return {Object} The minimum key of the tree.
-  */
+ * @return {Object} The minimum key of the tree.
+ */
 SplayTree.prototype.findMinimum = function () {
   if (!this.root) {
     return undefined;
@@ -97,18 +97,18 @@ SplayTree.prototype.findMinimum = function () {
 };
 
 /**
-  * @return {boolean} Whether the tree is empty.
-  */
+ * @return {boolean} Whether the tree is empty.
+ */
 SplayTree.prototype.isEmpty = function () {
   return !this.root;
 };
 
 /**
-  * Removes a key from the tree.
-  *
-  * @param {Object} key The key to remove.
-  * @return {boolean} Whether the key was removed.
-  */
+ * Removes a key from the tree.
+ *
+ * @param {Object} key The key to remove.
+ * @return {boolean} Whether the key was removed.
+ */
 SplayTree.prototype.remove = function (key) {
   if (!this.root) {
     return false;
@@ -119,19 +119,19 @@ SplayTree.prototype.remove = function (key) {
 };
 
 /**
-  * @return The size of the tree.
-  */
+ * @return The size of the tree.
+ */
 SplayTree.prototype.size = function () {
   return this.nodeCount;
 };
 
 /**
-  * Compares two nodes with each other.
-  *
-  * @param {Object} a The first key to compare.
-  * @param {Object} b The second key to compare.
-  * @return -1, 0 or 1 if a < b, a == b or a > b respectively.
-  */
+ * Compares two nodes with each other.
+ *
+ * @param {Object} a The first key to compare.
+ * @param {Object} b The second key to compare.
+ * @return -1, 0 or 1 if a < b, a == b or a > b respectively.
+ */
 SplayTree.prototype.compare = function (a, b) {
   if (a > b) {
     return 1;
@@ -143,17 +143,17 @@ SplayTree.prototype.compare = function (a, b) {
 };
 
 /**
-  * Rotates a node in a tree left.
-  *
-  *     a                             b
-  *    / \                           / \
-  *   c   b   -> rotateLeft(a) ->   a   e
-  *      / \                       / \
-  *     d   e                     c   d
-  *
-  * @param {SplayTree} tree The splay tree.
-  * @param {BinaryTreeNode} x The node being rotated.
-  */
+ * Rotates a node in a tree left.
+ *
+ *     a                             b
+ *    / \                           / \
+ *   c   b   -> rotateLeft(a) ->   a   e
+ *      / \                       / \
+ *     d   e                     c   d
+ *
+ * @param {SplayTree} tree The splay tree.
+ * @param {BinaryTreeNode} x The node being rotated.
+ */
 function rotateLeft(tree, x) {
   var y = x.right;
   x.right = y.left;
@@ -175,17 +175,17 @@ function rotateLeft(tree, x) {
 }
 
 /**
-  * Rotates a node in a tree right.
-  *
-  *       b                          a
-  *      / \                        / \
-  *     a   e -> rotateRight(b) -> c   b
-  *    / \                            / \
-  *   c   d                          d   e
-  *
-  * @param {SplayTree} tree The splay tree.
-  * @param {BinaryTreeNode} x The node being rotated.
-  */
+ * Rotates a node in a tree right.
+ *
+ *       b                          a
+ *      / \                        / \
+ *     a   e -> rotateRight(b) -> c   b
+ *    / \                            / \
+ *   c   d                          d   e
+ *
+ * @param {SplayTree} tree The splay tree.
+ * @param {BinaryTreeNode} x The node being rotated.
+ */
 function rotateRight(tree, x) {
   var y = x.left;
   x.left = y.right;
@@ -207,12 +207,12 @@ function rotateRight(tree, x) {
 }
 
 /**
-  * Inserts a key into the tree rooted on a particular node.
-  *
-  * @param {SplayTree} tree The tree to insert into.
-  * @param {Object} key The key to insert.
-  * @param {BinaryTreeNode} mode The tree's node to insert until.
-  */
+ * Inserts a key into the tree rooted on a particular node.
+ *
+ * @param {SplayTree} tree The tree to insert into.
+ * @param {Object} key The key to insert.
+ * @param {BinaryTreeNode} mode The tree's node to insert until.
+ */
 function insertInternal(tree, key, node) {
   if (tree.compare(key, node.key) < 0) {
     if (node.left) {
@@ -305,11 +305,11 @@ function removeInternal2(tree, node) {
 }
 
 /**
-  * Removes a node with no children.
-  *
-  * @param {SplayTree} tree The tree to remove the node from.
-  * @param {BinaryTreeNode} node The node to remove.
-  */
+ * Removes a node with no children.
+ *
+ * @param {SplayTree} tree The tree to remove the node from.
+ * @param {BinaryTreeNode} node The node to remove.
+ */
 function removeNodeWithNoChildren(tree, node) {
   if (node.parent) {
     node.parent.removeChild(node);
@@ -320,12 +320,12 @@ function removeNodeWithNoChildren(tree, node) {
 }
 
 /**
-  * Removes a node with a left child only, moving the left child in to the
-  * node's place.
-  *
-  * @param {SplayTree} tree The tree to remove the node from.
-  * @param {BinaryTreeNode} node The node to remove.
-  */
+ * Removes a node with a left child only, moving the left child in to the
+ * node's place.
+ *
+ * @param {SplayTree} tree The tree to remove the node from.
+ * @param {BinaryTreeNode} node The node to remove.
+ */
 function removeNodeWithLeftOnly(tree, node) {
   node.key = node.left.key;
   node.right = node.left.right;
@@ -340,12 +340,12 @@ function removeNodeWithLeftOnly(tree, node) {
 }
 
 /**
-  * Removes a node with a right child only, moving the right child in to the
-  * node's place.
-  *
-  * @param {SplayTree} tree The tree to remove the node from.
-  * @param {BinaryTreeNode} node The node to remove.
-  */
+ * Removes a node with a right child only, moving the right child in to the
+ * node's place.
+ *
+ * @param {SplayTree} tree The tree to remove the node from.
+ * @param {BinaryTreeNode} node The node to remove.
+ */
 function removeNodeWithRightOnly(tree, node) {
   node.key = node.right.key;
   node.left = node.right.left;
@@ -360,12 +360,12 @@ function removeNodeWithRightOnly(tree, node) {
 }
 
 /**
-  * Splay the tree on a node, bringing it to the root using a series of
-  * rotation operations.
-  *
-  * @param {SplayTree} tree The tree being splayed.
-  * @param {BinaryTreeNode} node The node being splayed on.
-  */
+ * Splay the tree on a node, bringing it to the root using a series of
+ * rotation operations.
+ *
+ * @param {SplayTree} tree The tree being splayed.
+ * @param {BinaryTreeNode} node The node being splayed on.
+ */
 function splay(tree, node) {
   while (node.parent) {
     var parent = node.parent;
@@ -395,8 +395,8 @@ function splay(tree, node) {
 }
 
 /**
-  * @return {BinaryTreeNode} The parent of the minimum key node in the tree.
-  */
+ * @return {BinaryTreeNode} The parent of the minimum key node in the tree.
+ */
 function findParentOfMinimum(node, parent) {
   if (!node.left) {
     return parent;
