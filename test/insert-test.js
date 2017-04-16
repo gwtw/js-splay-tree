@@ -10,3 +10,4 @@ test('should return the size of the tree', function (t) {
   tree.insert(5);
   t.is(tree.size(), 5);
 });
+
