@@ -30,7 +30,7 @@ SplayTree.prototype.constructor = SplayTree;
  * @param {Object} key The key to add.
  * @return {boolean} Whether the node was added.
  */
-SplayTree.prototype.add = function (key) {
+SplayTree.prototype.insert = function (key) {
   if (!this.root) {
     this.root = new BinaryTreeNode(key);
     this.nodeCount++;
